@@ -13,14 +13,13 @@ import projectRoutes from './routes/projectRoutes.js';
 dotenv.config();
 connectDB();
 const app = express();
+app.use(express.json());
+app.use(cors());
+app.options('*', cors());
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-
-app.use(express.json());
-app.use(cros());
-app.options('*', cors());
 
 app.use('/api/users', userRoutes);
 app.use('/api/projects', projectRoutes);
