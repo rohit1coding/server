@@ -29,16 +29,129 @@ const projectSchema = mongoose.Schema({
     type: Number,
     default: 0.0,
   },
+  offerPrice: {
+    type: Number,
+    default: 0.0,
+  },
   deliveryDays: {
     type: Number,
     default: 0,
   },
   image: {
-    type: String
+    type: String,
   },
   isFeatured: {
     type: Boolean,
     default: false,
+  },
+  sale: {
+    type: Boolean,
+    default: false,
+  },
+  collectionItem: {
+    type: Boolean,
+    default: false,
+  },
+  hotOfferItem: {
+    isHotOffer: { type: Boolean, default: false },
+    basic: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+    value: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+    prime: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+  },
+  inventoryMangement: {
+    isinventoryMangement: { type: Boolean, default: false },
+
+    basic: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+    value: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+    prime: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+  },
+  posSystem: {
+    isposSystem: { type: Boolean, default: false },
+
+    basic: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+    value: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
+    prime: {
+      basePrice: {
+        type: Number,
+        default: 0,
+      },
+      offerPrice: {
+        type: Number,
+        default: 0,
+      },
+    },
   },
 });
 

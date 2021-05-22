@@ -53,9 +53,30 @@ const createProject = asyncHandler(async (req, res) => {
     },
     sharingURL: 'http://www.sampleprojectshare.com/',
     basePrice: 99,
+    offerPrice: 89,
     deliveryDays: 3,
     image: 'http://imageurl.com/',
     isFeatured: false,
+    sale: false,
+    collectionItem: false,
+    hotOfferItem: {
+      isHotOffer: false,
+      basic: { basePrice: 1499, offerPrice: 999 },
+      value: { basePrice: 1599, offerPrice: 1299 },
+      prime: { basePrice: 1699, offerPrice: 1399 },
+    },
+    inventoryMangement: {
+      isinventoryMangement: false,
+      basic: { basePrice: 1499, offerPrice: 999 },
+      value: { basePrice: 1599, offerPrice: 1299 },
+      prime: { basePrice: 1699, offerPrice: 1399 },
+    },
+    posSystem: {
+      isposSystem: false,
+      basic: { basePrice: 1499, offerPrice: 999 },
+      value: { basePrice: 1599, offerPrice: 1299 },
+      prime: { basePrice: 1699, offerPrice: 1399 },
+    },
     user: req.user._id,
   });
 
@@ -75,9 +96,15 @@ const updateProject = asyncHandler(async (req, res) => {
     projectTechnology,
     sharingUrl,
     basePrice,
+    offerPrice,
     deliveryDays,
     image,
     isFeatured,
+    sale,
+    collectionItem,
+    hotOfferItem,
+    inventoryMangement,
+    posSystem,
   } = req.body;
 
   const project = await Project.findById(req.params.id);
@@ -89,9 +116,15 @@ const updateProject = asyncHandler(async (req, res) => {
     project.projectTechnology = projectTechnology;
     project.sharingUrl = sharingUrl;
     project.basePrice = basePrice;
+    project.offerPrice = offerPrice;
     project.deliveryDays = deliveryDays;
     project.image = image;
     project.isFeatured = isFeatured;
+    project.sale = sale;
+    project.collectionItem = collectionItem;
+    project.hotOfferItem = hotOfferItem;
+    project.inventoryMangement = inventoryMangement;
+    project.posSystem = posSystem;
 
     const updatedProject = await project.save();
     res.json(updatedProject);
