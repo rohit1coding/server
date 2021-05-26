@@ -65,18 +65,8 @@ const createProject = asyncHandler(async (req, res) => {
       value: { basePrice: 1599, offerPrice: 1299 },
       prime: { basePrice: 1699, offerPrice: 1399 },
     },
-    inventoryMangement: {
-      isinventoryMangement: false,
-      basic: { basePrice: 1499, offerPrice: 999 },
-      value: { basePrice: 1599, offerPrice: 1299 },
-      prime: { basePrice: 1699, offerPrice: 1399 },
-    },
-    posSystem: {
-      isposSystem: false,
-      basic: { basePrice: 1499, offerPrice: 999 },
-      value: { basePrice: 1599, offerPrice: 1299 },
-      prime: { basePrice: 1699, offerPrice: 1399 },
-    },
+    category: '',
+    subcategory: '',
     user: req.user._id,
   });
 
@@ -103,8 +93,12 @@ const updateProject = asyncHandler(async (req, res) => {
     sale,
     collectionItem,
     hotOfferItem,
-    inventoryMangement,
-    posSystem,
+
+    category,
+    subcategory,
+    basic,
+    value,
+    prime,
   } = req.body;
 
   const project = await Project.findById(req.params.id);
@@ -123,8 +117,11 @@ const updateProject = asyncHandler(async (req, res) => {
     project.sale = sale;
     project.collectionItem = collectionItem;
     project.hotOfferItem = hotOfferItem;
-    project.inventoryMangement = inventoryMangement;
-    project.posSystem = posSystem;
+    project.category = category;
+    project.subcategory = subcategory;
+    project.basic = basic;
+    project.value = value;
+    project.prime = prime;
 
     const updatedProject = await project.save();
     res.json(updatedProject);
