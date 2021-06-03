@@ -93,7 +93,7 @@ const updateProject = asyncHandler(async (req, res) => {
     sale,
     collectionItem,
     hotOfferItem,
-
+    productDescription,
     category,
     subcategory,
     basic,
@@ -122,6 +122,7 @@ const updateProject = asyncHandler(async (req, res) => {
     project.basic = basic;
     project.value = value;
     project.prime = prime;
+    project.productDescription = productDescription;
 
     const updatedProject = await project.save();
     res.json(updatedProject);

@@ -10,6 +10,7 @@ import cors from 'cors';
 import userRoutes from './routes/userRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
+import registrationRoutes from './routes/registrationRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -23,6 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/users', userRoutes);
+app.use('/api/tas', registrationRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/category', categoryRoutes);
 
